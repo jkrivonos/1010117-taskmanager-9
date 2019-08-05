@@ -37,8 +37,13 @@
     <main class="main">
       <section class="main__control control container">
         <h1 class="control__title">TASKMANAGER</h1>
-        <!-- Меню -->
+        <script type="module">import getNewTaskElement from '../src/main.js';
+        document.body.insertAdjacentHTML(`beforeend`, getNewTaskElement());</script>
       </section>
+
+
+
+
 
       <!-- Поиск -->
 
@@ -46,5 +51,15 @@
 
       <!-- Контент -->
     </main>
+    <script src="../src/main.js"></script>
+    <script>
+
+//      document.body.insertAdjacentHTML(`beforeend`, getSearchElement());
+//      document.body.insertAdjacentHTML(`beforeend`, getMenuElement());
+//      document.body.insertAdjacentHTML(`beforeend`, getSortElement());
+//      document.body.insertAdjacentHTML(`beforeend`, getUniqueCardElement());
+//      document.body.insertAdjacentHTML(`beforeend`, getLoadMoreElement());
+
+    </script>
   </body>
 </html>

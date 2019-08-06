@@ -1,6 +1,7 @@
 const getNewTaskElement = () =>
 {
   return `<section class="main__control control container">
+    <h1 class="control__title">TASKMANAGER</h1>
     <section class="control__btn-wrap">
       <input
         type="radio"
@@ -28,15 +29,11 @@ const getNewTaskElement = () =>
       <label for="control__statistic" class="control__label"
       >STATISTICS</label
       >
-    </section>
-  </section>`
-}
-;
-
+    </section>`
+};
 
 const getSearchElement = () => {
-  return `
-    <section class="main__search search container">
+  return`<section class="main__search search container">
     <input
       type="text"
       id="search__input"
@@ -117,16 +114,27 @@ const getMenuElement = () => {
     >
   </section>`
 }
-const getSortElement = () => {
-  return `<section>
-    <div class="board__filter-list">
+
+const getContentWrapper = () =>{
+  return`<section class="board container">
+${getFilterElement()} ${getCardsWrapper()} ${getLoadMoreElement()}
+</section>`
+}
+const getFilterElement = () => {
+  return ` <div class="board__filter-list">
       <a href="#" class="board__filter">SORT BY DEFAULT</a>
       <a href="#" class="board__filter">SORT BY DATE up</a>
       <a href="#" class="board__filter">SORT BY DATE down</a>
-    </div>
-    </section>`
+    </div>`
 }
+const getCardsWrapper = () => {
+  return `<div class="board__tasks">
+    ${getUniqueCardElement()} 
+    ${getUniqueCardElement()} 
+    ${getUniqueCardElement()} 
+    </div>`
 
+}
 const getUniqueCardElement = () => {
   return ` <article class="card card--blue">
         <div class="card__form">
@@ -194,12 +202,10 @@ const getUniqueCardElement = () => {
       </article>`
 }
 const getLoadMoreElement = () => {
-  return `    <button class="load-more" type="button">load more</button>`
+  return `<button class="load-more" type="button">load more</button>`
 }
 
 document.body.insertAdjacentHTML(`beforeend`, getNewTaskElement());
 document.body.insertAdjacentHTML(`beforeend`, getSearchElement());
 document.body.insertAdjacentHTML(`beforeend`, getMenuElement());
-document.body.insertAdjacentHTML(`beforeend`, getSortElement());
-document.body.insertAdjacentHTML(`beforeend`, getUniqueCardElement());
-document.body.insertAdjacentHTML(`beforeend`, getLoadMoreElement());
+document.body.insertAdjacentHTML(`beforeend`, getContentWrapper());

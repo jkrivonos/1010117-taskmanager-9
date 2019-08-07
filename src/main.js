@@ -1,6 +1,4 @@
-const getNewTaskElement = () =>
-{
-  return `<section class="main__control control container">
+const getNewTaskElement = () =>`<section class="main__control control container">
     <h1 class="control__title">TASKMANAGER</h1>
     <section class="control__btn-wrap">
       <input
@@ -29,11 +27,9 @@ const getNewTaskElement = () =>
       <label for="control__statistic" class="control__label"
       >STATISTICS</label
       >
-    </section>`
-};
+    </section>`;
 
-const getSearchElement = () => {
-  return`<section class="main__search search container">
+const getSearchElement = () => `<section class="main__search search container">
     <input
       type="text"
       id="search__input"
@@ -43,9 +39,7 @@ const getSearchElement = () => {
     <label class="visually-hidden" for="search__input">Search</label>
   </section>
   `;
-};
-const getMenuElement = () => {
-  return`<section class="main__filter filter container">
+const getMenuElement = () =>`<section class="main__filter filter container">
     <input
       type="radio"
       id="filter__all"
@@ -112,31 +106,25 @@ const getMenuElement = () => {
     <label for="filter__archive" class="filter__label"
     >Archive <span class="filter__archive-count">115</span></label
     >
-  </section>`
-}
+  </section>`;
 
-const getContentWrapper = () =>{
-  return`<section class="board container">
+const getContentWrapper = () =>`<section class="board container">
 ${getFilterElement()} ${getCardsWrapper()} ${getLoadMoreElement()}
-</section>`
-}
-const getFilterElement = () => {
-  return ` <div class="board__filter-list">
+</section>`;
+
+const getFilterElement = () =>` <div class="board__filter-list">
       <a href="#" class="board__filter">SORT BY DEFAULT</a>
       <a href="#" class="board__filter">SORT BY DATE up</a>
       <a href="#" class="board__filter">SORT BY DATE down</a>
-    </div>`
-}
-const getCardsWrapper = () => {
-  return `<div class="board__tasks">
-    ${getUniqueCardElement()} 
-    ${getUniqueCardElement()} 
-    ${getUniqueCardElement()} 
-    </div>`
+    </div>`;
 
-}
-const getUniqueCardElement = () => {
-  return ` <article class="card card--blue">
+const getCardsWrapper = () =>`<div class="board__tasks">
+    ${getUniqueCardElement(`Example default task with default color.`, `23 September`, `11:15`, `card--blue`, ['#popular', '#important', '#todo'])} 
+    ${getUniqueCardElement(`Example default task with custom color.`,  `23 September`, `11:15`, `card--yellow`, ['#popular', '#important'])} 
+    ${getUniqueCardElement(`Example default task with custom color and without date.`)} 
+    </div>`;
+
+const getUniqueCardElement = (text = '', data = '', time = '', className ='', tags = []) =>`<article class="card ${className}">
         <div class="card__form">
           <div class="card__inner">
             <div class="card__control">
@@ -159,9 +147,9 @@ const getUniqueCardElement = () => {
                 <use xlink:href="#wave"></use>
               </svg>
             </div>
-
+            
             <div class="card__textarea-wrap">
-              <p class="card__text">Example default task with custom color.</p>
+              <p class="card__text">${text}</p>
             </div>
 
             <div class="card__settings">
@@ -169,41 +157,34 @@ const getUniqueCardElement = () => {
                 <div class="card__dates">
                   <div class="card__date-deadline">
                     <p class="card__input-deadline-wrap">
-                      <span class="card__date">23 September</span>
-                      <span class="card__time">11:15 PM</span>
+                      <span class="card__date">${data}</span>
+                      <span class="card__time">${time}</span>
                     </p>
                   </div>
                 </div>
-
-                <div class="card__hashtag">
-                  <div class="card__hashtag-list">
-                        <span class="card__hashtag-inner">
-                          <span class="card__hashtag-name">
-                          </span>
-                        </span>
-
-                    <span class="card__hashtag-inner">
-                          <span class="card__hashtag-name">
-                            #personal
-                          </span>
-                        </span>
-
-                    <span class="card__hashtag-inner">
-                          <span class="card__hashtag-name">
-                            #important
-                          </span>
-                        </span>
-                  </div>
-                </div>
+                ${getWrapperTags(tags)}
               </div>
             </div>
           </div>
         </div>
-      </article>`
-}
-const getLoadMoreElement = () => {
-  return `<button class="load-more" type="button">load more</button>`
-}
+      </article>`;
+
+const getTag = (tag = '') => `<span class="card__hashtag-inner">
+  <span class="card__hashtag-name">${tag}</span>
+</span>`;
+
+const getWrapperTags = (tags) => `<div class="card__hashtag">
+<div class="card__hashtag-list">
+      <span class="card__hashtag-inner">
+        <span class="card__hashtag-name">
+        </span>
+      </span>
+      ${getTag(tags[0])}
+      ${getTag(tags[1])}
+      ${getTag(tags[2])}
+</div>
+</div>`
+const getLoadMoreElement = () =>`<button class="load-more" type="button">load more</button>`;
 
 document.body.insertAdjacentHTML(`beforeend`, getNewTaskElement());
 document.body.insertAdjacentHTML(`beforeend`, getSearchElement());

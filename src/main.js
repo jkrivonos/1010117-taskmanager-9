@@ -1,4 +1,3 @@
-'use strict';
 const getNewTaskElement = () =>`<section class="main__control control container">
     <h1 class="control__title">TASKMANAGER</h1>
     <section class="control__btn-wrap">
@@ -120,12 +119,12 @@ const getFilterElement = () =>` <div class="board__filter-list">
     </div>`;
 
 const getCardsWrapper = () =>`<div class="board__tasks">
-    ${getUniqueCardElement(`Example default task with default color.`, `23 September`, `11:15`, `card--blue`, ['#popular', '#important', '#todo'])} 
-    ${getUniqueCardElement(`Example default task with custom color.`, `23 September`, `11:15`, `card--yellow`, ['#popular', '#important'])} 
+    ${getUniqueCardElement(`Example default task with default color.`, `23 September`, `11:15`, `card--blue`, [`#popular`, `#important`, `#todo`])} 
+    ${getUniqueCardElement(`Example default task with custom color.`, `23 September`, `11:15`, `card--yellow`, [`#popular`, `#important`])} 
     ${getUniqueCardElement(`Example default task with custom color and without date.`)} 
     </div>`;
 
-const getUniqueCardElement = (text = '', data = '', time = '', className ='', tags = []) =>`<article class="card ${className}">
+const getUniqueCardElement = (text = ``, data = ``, time = ``, className = ``, tags = []) =>`<article class="card ${className}">
         <div class="card__form">
           <div class="card__inner">
             <div class="card__control">
@@ -170,7 +169,7 @@ const getUniqueCardElement = (text = '', data = '', time = '', className ='', ta
         </div>
       </article>`;
 
-const getTag = (tag = '') => `<span class="card__hashtag-inner">
+const getTag = (tag = ``) => `<span class="card__hashtag-inner">
   <span class="card__hashtag-name">${tag}</span>
 </span>`;
 
@@ -184,7 +183,7 @@ const getWrapperTags = (tags) => `<div class="card__hashtag">
       ${getTag(tags[1])}
       ${getTag(tags[2])}
 </div>
-</div>`
+</div>`;
 const getLoadMoreElement = () =>`<button class="load-more" type="button">load more</button>`;
 
 document.body.insertAdjacentHTML(`beforeend`, getNewTaskElement());

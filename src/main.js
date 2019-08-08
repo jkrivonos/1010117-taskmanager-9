@@ -1,3 +1,4 @@
+'use strict';
 const getNewTaskElement = () =>`<section class="main__control control container">
     <h1 class="control__title">TASKMANAGER</h1>
     <section class="control__btn-wrap">
@@ -120,7 +121,7 @@ const getFilterElement = () =>` <div class="board__filter-list">
 
 const getCardsWrapper = () =>`<div class="board__tasks">
     ${getUniqueCardElement(`Example default task with default color.`, `23 September`, `11:15`, `card--blue`, ['#popular', '#important', '#todo'])} 
-    ${getUniqueCardElement(`Example default task with custom color.`,  `23 September`, `11:15`, `card--yellow`, ['#popular', '#important'])} 
+    ${getUniqueCardElement(`Example default task with custom color.`, `23 September`, `11:15`, `card--yellow`, ['#popular', '#important'])} 
     ${getUniqueCardElement(`Example default task with custom color and without date.`)} 
     </div>`;
 

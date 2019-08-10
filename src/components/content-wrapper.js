@@ -1,3 +1,3 @@
-export const contantWrapper = () =>`<section class="board container">
-${createFiltersPanel()} ${tasksWrapper()} ${createLoadMoreElement()}
-</section>`;
+export const contentWrapper = () =>`<section class="board container">
+    <div class="board__tasks"></div>
+  </section>`;

@@ -1,4 +1,5 @@
-export const createMenuPanel = () =>`<section class="main__filter filter container">
+export const createFilterPanel = () =>
+  `<section class="main__filter filter container">
     <input
       type="radio"
       id="filter__all"

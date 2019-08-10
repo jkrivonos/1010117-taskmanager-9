@@ -36,7 +36,7 @@ export const taskElement = (text = ``, data = ``, time = ``, className = ``, tag
                     </p>
                   </div>
                 </div>
-                ${tagsWrapper(tags)}
+                <!-- $\{tagsWrapper(tags)}-->
               </div>
             </div>
           </div>

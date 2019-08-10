@@ -1,4 +1,4 @@
-export const taskElement = (text = ``, data = ``, time = ``, className = ``, tags = []) =>`<article class="card ${className}">
+export const taskElement = (text = ``, data = ``, time = ``, className = ``) =>`<article class="card ${className}">
         <div class="card__form">
           <div class="card__inner">
             <div class="card__control">
@@ -36,7 +36,6 @@ export const taskElement = (text = ``, data = ``, time = ``, className = ``, tag
                     </p>
                   </div>
                 </div>
-                <!-- $\{tagsWrapper(tags)}-->
               </div>
             </div>
           </div>

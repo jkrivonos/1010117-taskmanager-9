@@ -1,5 +1,5 @@
 export const createHeaderPanel = () => {
-    return `<section class="main__control control container">
+  return `<section class="main__control control container">
       <h1 class="control__title">TASKMANAGER</h1>
       <section class="control__btn-wrap">
         <input

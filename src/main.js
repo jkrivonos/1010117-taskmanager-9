@@ -25,6 +25,8 @@ const taskListElement = mainElement.querySelector(`.board__tasks`);
 
 render(boardElement, createSortingPanel(), `afterbegin`);
 
-new Array(3).fill(``).forEach(() => render(taskListElement, taskElement(), `beforeend`));
+render(taskListElement, taskElement(`Example default task with default color.`, `23 September`, `11:15`, `card--blue`), `beforeend`);
+render(taskListElement, taskElement(`Example default task with custom color.`, `23 September`, `11:15`, `card--yellow`), `beforeend`);
+render(taskListElement, taskElement(`Example default task with custom color and without date.`), `beforeend`);
 
 render(boardElement, createLoadMoreElement(), `beforeend`);

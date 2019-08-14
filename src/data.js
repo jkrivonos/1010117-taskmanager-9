@@ -1,4 +1,4 @@
-export const getDataTask = () => ({
+const getDataTask = () => ({
   description: [
     `Изучить теорию`,
     `Сделать домашку`,
@@ -30,3 +30,8 @@ export const getDataTask = () => ({
   isFavorite: Boolean(Math.round(Math.random())),
   isArchive: Boolean(Math.round(Math.random()))
 });
+
+const allTasks = (count) => new Array(count).fill(``).map(getDataTask);
+const filters = []
+
+export {getDataTask, allTasks, filters};

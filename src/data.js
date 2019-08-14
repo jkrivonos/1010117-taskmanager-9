@@ -30,54 +30,54 @@ const getDataTask = () => ({
   isFavorite: Boolean(Math.round(Math.random())),
   isArchive: Boolean(Math.round(Math.random()))
 });
+const getCountType = (tasks, filterKey) => {
+  return tasks.filter((el) => el[filterKey]).length;
+};
+const getFilters = (tasks) => {
+  return [
+    {
+      title: `ALL`,
+      get count(){
+        return tasks.length;
+      }
+    },
+    {
+      title: `FAVORITES`,
+      get count() {
+        return getCountType(tasks, this.flagName);
+      },
+      flagName: `isFavorite`
+    },
+    {
+      title: `OVERDUE`,
+      get count() {
+        return getCountType(tasks, this.flagName);
+      },
+      flagName: `isOverdue`
+    },
+    {
+      title: `TODAY`,
+      count: 0,
+      flagName: `isToday`
+    },
+    {
+      title: `REPEATING`,
+      count: 0,
+      flagName: `isRepeating`
+    },
+    {
+      title: `TAGS`,
+      count: 0,
+      flagName: `isTags`
+    },
+    {
+      title: `ARCHIVE`,
+      get count() {
+        return getCountType(tasks, this.flagName);
+      },
+      flagName: `isArchive`
+    }
+  ];
+};
 
-// const filters = [
-//   {
-//     title: `All`,
-//     count: 0
-//   },
-//   {
-//     title: `Favorites`,
-//     get count() {return {tasks.filter((el) => el[this.flag]).length}},
-//     flag: `isFavorite`
-//   }
-// ]
-
-const filters = [
-  {
-    title: `ALL`,
-    count: 0
-  },
-  {
-    title: `FAVORITES`,
-    count: 0,
-    flag: `isFavorite`
-  },
-  {
-    title: `OVERDUE`,
-    count: 0,
-    flag: `isOverdue`
-  },
-  {
-    title: `TODAY`,
-    count: 0,
-    flag: `isToday`
-  },
-  {
-    title: `REPEATING`,
-    count: 0,
-    flag: `isRepeating`
-  },
-  {
-    title: `TAGS`,
-    count: 0,
-    flag: `isTags`
-  },{
-    title: `ARCHIVE`,
-    count: 0,
-    flag: `isArchive`
-  }
-
-]
-
-export {getDataTask, filters};
+export {getDataTask, getFilters};

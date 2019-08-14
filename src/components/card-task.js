@@ -1,10 +1,4 @@
-export const createCardTask = ({description = ``,
-                              dueDate = ``,
-                              color = ``,
-                              repeatingDays = ``,
-                              tags = ``,
-                              isFavorite = false,
-                              isArchive = false}) => {
+export const createCardTask = ({description = ``, dueDate = ``, color = ``, repeatingDays = ``, tags = ``, isFavorite = false, isArchive = false}) => {
   return `<article class="card card--${color} ${Object.keys(repeatingDays).some(day => repeatingDays[day]) ? `card--repeat` : ``}" >
         <div class="card__form">
           <div class="card__inner">

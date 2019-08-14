@@ -14,5 +14,10 @@ node_modules/
 # Папка с собранными файлами проекта
 build/
 
+<<<<<<< HEAD
 public/bundle.js
 public/bundle.js.map
+=======
+bundle.js
+bundle.js.map
+>>>>>>> 85e188cbbcfc4e3c94546bceade29aa4da46bc2c

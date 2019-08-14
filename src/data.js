@@ -31,7 +31,53 @@ const getDataTask = () => ({
   isArchive: Boolean(Math.round(Math.random()))
 });
 
-const allTasks = (count) => new Array(count).fill(``).map(getDataTask);
-const filters = []
+// const filters = [
+//   {
+//     title: `All`,
+//     count: 0
+//   },
+//   {
+//     title: `Favorites`,
+//     get count() {return {tasks.filter((el) => el[this.flag]).length}},
+//     flag: `isFavorite`
+//   }
+// ]
 
-export {getDataTask, allTasks, filters};
+const filters = [
+  {
+    title: `ALL`,
+    count: 0
+  },
+  {
+    title: `FAVORITES`,
+    count: 0,
+    flag: `isFavorite`
+  },
+  {
+    title: `OVERDUE`,
+    count: 0,
+    flag: `isOverdue`
+  },
+  {
+    title: `TODAY`,
+    count: 0,
+    flag: `isToday`
+  },
+  {
+    title: `REPEATING`,
+    count: 0,
+    flag: `isRepeating`
+  },
+  {
+    title: `TAGS`,
+    count: 0,
+    flag: `isTags`
+  },{
+    title: `ARCHIVE`,
+    count: 0,
+    flag: `isArchive`
+  }
+
+]
+
+export {getDataTask, filters};

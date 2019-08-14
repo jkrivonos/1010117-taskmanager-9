@@ -1,4 +1,4 @@
-export const createCardTask = ({description = ``, dueDate = ``, color = ``, repeatingDays = ``, tags = ``, isFavorite = false, isArchive = false}) => {
+export const createCardTask = ({description = ``, dueDate = ``, color = ``, repeatingDays = ``, tags = ``, isFavorite = false, isArchive = false, isOverdue = false, isToday = false, isRepeating = false, isTags = false}) => {
   return `<article class="card card--${color} ${Object.keys(repeatingDays).some(day => repeatingDays[day]) ? `card--repeat` : ``}" >
         <div class="card__form">
           <div class="card__inner">
@@ -40,7 +40,7 @@ export const createCardTask = ({description = ``, dueDate = ``, color = ``, repe
               <div class="card__hashtag">
                   <div class="card__hashtag-list">
                         ${Array.from(tags).map((tag) => `<span class="card__hashtag-inner">
-                          <span class="card__hashtag-name">#${tag}</span></span>`).join(``)}
+                          <span class="card__hashtag-name"># ${tag}</span></span>`).join(``)}
                   </div>
                 </div>
                 </div>

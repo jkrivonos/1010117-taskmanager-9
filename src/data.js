@@ -45,22 +45,32 @@ const getTodayTasks = (tasks) => {
 };
 // TODO: отразить в верстке волнистой полоской поторяющиеся таски
 const getRepeatedTasks = (tasks) => {
-  let repeatedTask = tasks.find(el => el === el);
-  let repeatedTasks = [];
-  repeatedTasks.push(repeatedTask);
-  return repeatedTasks.length;
-};
+  const result = {}
+  for (let i = 0; i < tasks.length; i++) {
+    result[tasks[i]] = (result[tasks[i]] || 0) + 1};
+  Object.keys(result).map(key => ({ [key]: result[key]}));
+  return result;
+}
+;
 const getTagsTasks = (tasks) => {
-  tasks.forEach(el => console.log(el.tags));
   const tagsTasks = tasks.filter(el => el.tags.size == 4);
   return tagsTasks.length;
+};
+const getAllTasks = (tasks) => {
+  const currentTasks = tasks.reduce((finalList, curTask) => {
+    if (!curTask.isArchive) {
+      finalList.push(curTask);
+    }
+    return finalList;
+  }, []);
+  return currentTasks.length;
 };
 const getFilters = (tasks) => {
   return [
     {
       title: `ALL`,
       get count() {
-        return tasks.length;
+        return getAllTasks(tasks);
       }
     },
     {
@@ -87,7 +97,8 @@ const getFilters = (tasks) => {
     {
       title: `REPEATING`,
       get count() {
-        return getRepeatedTasks(tasks);
+        // return getRepeatedTasks(tasks);
+        return 1;
       },
       flagName: `isRepeating`
     },

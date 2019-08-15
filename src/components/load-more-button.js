@@ -1,1 +1,1 @@
-export const createLoadMoreElement = () =>`<button class="load-more" type="button">load more</button>`;
+export const createLoadMoreElement = (stopLoading) =>`<button class="load-more ${stopLoading ? `disabled` : ``}" type="button">load more</button>`;

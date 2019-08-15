@@ -33,27 +33,28 @@ const getCountType = (tasks, filterKey) => {
   return tasks.filter((el) => el[filterKey]).length;
 };
 const getOverdueTasks = (tasks) => {
-  let date = new Date;
-  let overdueTasks = tasks.filter(el => el.dueDate < date.getTime());
+  let date = new Date();
+  let overdueTasks = tasks.filter((el) => el.dueDate < date.getTime());
   return overdueTasks.length;
 };
 // TODO: переписать на reduce
 const getTodayTasks = (tasks) => {
-  let date = new Date;
-  let todayTasks = tasks.filter(el => el.dueDate === date.getTime());
+  let date = new Date();
+  let todayTasks = tasks.filter((el) => el.dueDate === date.getTime());
   return todayTasks.length;
 };
 // TODO: отразить в верстке волнистой полоской поторяющиеся таски
-const getRepeatedTasks = (tasks) => {
-  const result = {}
-  for (let i = 0; i < tasks.length; i++) {
-    result[tasks[i]] = (result[tasks[i]] || 0) + 1};
-  Object.keys(result).map(key => ({ [key]: result[key]}));
-  return result;
+const getRepeatedTasks = () => {
+  return 1;
+  // const result = {}
+  // for (let i = 0; i < tasks.length; i++) {
+  //   result[tasks[i]] = (result[tasks[i]] || 0) + 1};
+  // Object.keys(result).map(key => ({ [key]: result[key]}));
+  // return result;
 }
 ;
 const getTagsTasks = (tasks) => {
-  const tagsTasks = tasks.filter(el => el.tags.size == 4);
+  const tagsTasks = tasks.filter((el) => el.tags.size === 4);
   return tagsTasks.length;
 };
 const getAllTasks = (tasks) => {
@@ -97,8 +98,7 @@ const getFilters = (tasks) => {
     {
       title: `REPEATING`,
       get count() {
-        // return getRepeatedTasks(tasks);
-        return 1;
+        return getRepeatedTasks(tasks);
       },
       flagName: `isRepeating`
     },

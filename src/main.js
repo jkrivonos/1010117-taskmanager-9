@@ -18,7 +18,7 @@ const headerElement = mainElement.querySelector(`.main__control`);
 render(headerElement, createHeaderPanel(), `beforeend`);
 render(mainElement, createSearchPanel(), `beforeend`);
 render(mainElement, filtersWrapper(), `beforeend`);
-const filterElement = mainElement.querySelector(`.main__filter`)
+const filterElement = mainElement.querySelector(`.main__filter`);
 render(mainElement, contentWrapper(), `beforeend`);
 const boardElement = mainElement.querySelector(`.board`);
 
@@ -40,10 +40,10 @@ const showingTasks = partlyTasks(8);
 const loadTasksHandler = () => {
   const restTasks = tasks.length - showingTasks.length;
   const restTasksRender = partlyTasks(restTasks);
-    restTasksRender.forEach(el => render(taskListElement, createCardTask(el), `beforeend`));
-}
+  restTasksRender.forEach((el) => render(taskListElement, createCardTask(el), `beforeend`));
+};
 document.querySelector(`.load-more`).addEventListener(`click`, loadTasksHandler);
 
 const filters = getFilters(tasks);
-filters.forEach(el => render(filterElement, createFiltersPanel(el.title, el.count), `beforeend`));
-showingTasks.forEach(el => render(taskListElement, createCardTask(el), `beforeend`));
+filters.forEach((el) => render(filterElement, createFiltersPanel(el.title, el.count), `beforeend`));
+showingTasks.forEach((el) => render(taskListElement, createCardTask(el), `beforeend`));
